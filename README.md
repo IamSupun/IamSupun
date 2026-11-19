@@ -172,9 +172,7 @@ Turns messy, unstructured information into clean, reusable **context documents f
 
 <br/><br/>
 
-<img src="https://streak-stats.demolab.com/?user=IamSupun&background=0B0820&border=7C3AED&stroke=7C3AED&ring=C084FC&fire=F472B6&currStreakNum=22D3EE&currStreakLabel=C084FC&sideNums=E2E8F0&sideLabels=22D3EE&dates=94A3B8&border_radius=12&v=2" alt="Contribution streak"/>
-
-<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=IamSupun&bg_color=0b0820&color=c084fc&line=22d3ee&point=f472b6&area=true&area_color=a855f7&title_color=c084fc&custom_title=Contribution%20activity&radius=12&days=30&v=2" alt="Activity graph"/>
+<img width="100%" src="https://raw.githubusercontent.com/IamSupun/IamSupun/stats/activity.svg" alt="Contribution activity and streaks for the last 12 months"/>
 
 </div>
 
