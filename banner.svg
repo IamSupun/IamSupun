@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0820"/>
+      <stop offset="0.55" stop-color="#140b2e"/>
+      <stop offset="1" stop-color="#06131f"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#c084fc"/>
+      <stop offset="1" stop-color="#f472b6"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-0.5 0;0.5 0;-0.5 0" dur="8s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="gridfade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a855f7" stop-opacity="0"/>
+      <stop offset="1" stop-color="#a855f7" stop-opacity="0.55"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#c084fc" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#c084fc" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="frame"><rect width="1200" height="320" rx="18"/></clipPath>
+    <style>
+      .t { font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; }
+      .node { animation: pulse 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      .n2 { animation-delay: .4s } .n3 { animation-delay: .8s } .n4 { animation-delay: 1.2s } .n5 { animation-delay: 1.6s } .n6 { animation-delay: 2s }
+      @keyframes pulse { 0%,100% { opacity: .55; transform: scale(1) } 50% { opacity: 1; transform: scale(1.35) } }
+      .edge { stroke-dasharray: 6 14; animation: flow 1.6s linear infinite; }
+      .edge.slow { animation-duration: 2.6s }
+      @keyframes flow { to { stroke-dashoffset: -40 } }
+      .grid { animation: grid 1.8s linear infinite; }
+      @keyframes grid { from { transform: translateY(0) } to { transform: translateY(24px) } }
+      .flicker { animation: flicker 6s linear infinite; }
+      @keyframes flicker { 0%,18%,22%,62%,64%,100% { opacity: 1 } 20%,63% { opacity: .65 } }
+      .cursor { animation: blink 1s steps(1) infinite; }
+      @keyframes blink { 50% { opacity: 0 } }
+      .scan { animation: scan 5s linear infinite; }
+      @keyframes scan { from { transform: translateY(-40px) } to { transform: translateY(340px) } }
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="320" fill="url(#bg)"/>
+    <ellipse cx="600" cy="250" rx="420" ry="140" fill="url(#sun)"/>
+
+    <!-- retro perspective grid -->
+    <g opacity="0.8">
+      <clipPath id="floor"><rect x="0" y="220" width="1200" height="100"/></clipPath>
+      <g clip-path="url(#floor)" stroke="url(#gridfade)" stroke-width="1">
+        <g class="grid">
+          <line x1="0" y1="200" x2="1200" y2="200"/><line x1="0" y1="224" x2="1200" y2="224"/>
+          <line x1="0" y1="248" x2="1200" y2="248"/><line x1="0" y1="272" x2="1200" y2="272"/>
+          <line x1="0" y1="296" x2="1200" y2="296"/><line x1="0" y1="320" x2="1200" y2="320"/>
+        </g>
+        <line x1="600" y1="220" x2="-600" y2="320"/><line x1="600" y1="220" x2="-200" y2="320"/>
+        <line x1="600" y1="220" x2="200" y2="320"/><line x1="600" y1="220" x2="450" y2="320"/>
+        <line x1="600" y1="220" x2="600" y2="320"/><line x1="600" y1="220" x2="750" y2="320"/>
+        <line x1="600" y1="220" x2="1000" y2="320"/><line x1="600" y1="220" x2="1400" y2="320"/>
+        <line x1="600" y1="220" x2="1800" y2="320"/>
+      </g>
+      <line x1="0" y1="220" x2="1200" y2="220" stroke="#c084fc" stroke-opacity=".6"/>
+    </g>
+
+    <!-- left neural network -->
+    <g fill="none" stroke-width="1.6">
+      <path class="edge" d="M40 70 L115 110" stroke="#22d3ee"/>
+      <path class="edge slow" d="M40 150 L115 110" stroke="#a855f7"/>
+      <path class="edge" d="M40 150 L115 190" stroke="#22d3ee"/>
+      <path class="edge slow" d="M40 230 L115 190" stroke="#f472b6"/>
+      <path class="edge" d="M40 70 L115 190" stroke="#a855f7" stroke-opacity=".6"/>
+      <path class="edge" d="M115 110 L182 150" stroke="#22d3ee"/>
+      <path class="edge slow" d="M115 190 L182 150" stroke="#f472b6"/>
+    </g>
+    <g filter="url(#glow)">
+      <circle class="node" cx="40" cy="70" r="6" fill="#22d3ee"/>
+      <circle class="node n2" cx="40" cy="150" r="6" fill="#a855f7"/>
+      <circle class="node n3" cx="40" cy="230" r="6" fill="#f472b6"/>
+      <circle class="node n4" cx="115" cy="110" r="7" fill="#22d3ee"/>
+      <circle class="node n5" cx="115" cy="190" r="7" fill="#c084fc"/>
+      <circle class="node n6" cx="182" cy="150" r="9" fill="#e879f9"/>
+    </g>
+
+    <!-- right neural network (mirrored) -->
+    <g fill="none" stroke-width="1.6">
+      <path class="edge" d="M1160 70 L1085 110" stroke="#22d3ee"/>
+      <path class="edge slow" d="M1160 150 L1085 110" stroke="#a855f7"/>
+      <path class="edge" d="M1160 150 L1085 190" stroke="#22d3ee"/>
+      <path class="edge slow" d="M1160 230 L1085 190" stroke="#f472b6"/>
+      <path class="edge" d="M1160 230 L1085 110" stroke="#a855f7" stroke-opacity=".6"/>
+      <path class="edge" d="M1085 110 L1018 150" stroke="#22d3ee"/>
+      <path class="edge slow" d="M1085 190 L1018 150" stroke="#f472b6"/>
+    </g>
+    <g filter="url(#glow)">
+      <circle class="node n3" cx="1160" cy="70" r="6" fill="#22d3ee"/>
+      <circle class="node n4" cx="1160" cy="150" r="6" fill="#a855f7"/>
+      <circle class="node n5" cx="1160" cy="230" r="6" fill="#f472b6"/>
+      <circle class="node" cx="1085" cy="110" r="7" fill="#22d3ee"/>
+      <circle class="node n2" cx="1085" cy="190" r="7" fill="#c084fc"/>
+      <circle class="node n6" cx="1018" cy="150" r="9" fill="#e879f9"/>
+    </g>
+
+    <!-- title -->
+    <text class="t mono" x="600" y="78" text-anchor="middle" font-size="16" letter-spacing="6" fill="#22d3ee" opacity=".85">&lt; HELLO WORLD, I'M /&gt;</text>
+    <g class="flicker">
+      <text class="t" x="600" y="146" text-anchor="middle" font-size="54" font-weight="800" letter-spacing="3" fill="url(#title)" filter="url(#softglow)" opacity=".7">SUPUN CHATHURANGA</text>
+      <text class="t" x="600" y="146" text-anchor="middle" font-size="54" font-weight="800" letter-spacing="3" fill="url(#title)">SUPUN CHATHURANGA</text>
+    </g>
+    <text class="t mono" x="600" y="192" text-anchor="middle" font-size="20" letter-spacing="2" fill="#e2e8f0">
+      <tspan fill="#f472b6">$</tspan> agent --build "AI that does real work"<tspan class="cursor" fill="#22d3ee">▌</tspan>
+    </text>
+
+    <!-- tags -->
+    <g class="t mono" font-size="13" letter-spacing="1.5" text-anchor="middle">
+      <rect x="388" y="262" width="128" height="28" rx="14" fill="#0b0820" stroke="#22d3ee" stroke-opacity=".8"/>
+      <text x="452" y="281" fill="#22d3ee">AGENTIC AI</text>
+      <rect x="530" y="262" width="140" height="28" rx="14" fill="#0b0820" stroke="#c084fc" stroke-opacity=".8"/>
+      <text x="600" y="281" fill="#c084fc">MCP SERVERS</text>
+      <rect x="684" y="262" width="128" height="28" rx="14" fill="#0b0820" stroke="#f472b6" stroke-opacity=".8"/>
+      <text x="748" y="281" fill="#f472b6">DATA PIPES</text>
+    </g>
+
+    <!-- scanline -->
+    <rect class="scan" x="0" y="0" width="1200" height="2" fill="#22d3ee" opacity=".12"/>
+  </g>
+  <rect x="1" y="1" width="1198" height="318" rx="18" fill="none" stroke="#7c3aed" stroke-opacity=".7" stroke-width="2"/>
+</svg>
