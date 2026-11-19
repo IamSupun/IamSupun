@@ -203,6 +203,8 @@ Turns messy, unstructured information into clean, reusable **context documents f
 
 ⭐ **If something here sparked an idea, star a repo or follow along. New agents ship often.** ⭐
 
+<sub>🎨 Design by <a href="https://github.com/IamSupun">Supun Chathuranga</a> · © 2026 · <a href="./LICENSE">All rights reserved</a></sub>
+
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:22d3ee,50:a855f7,100:f472b6&height=120&section=footer" width="100%"/>
 
 </div>
