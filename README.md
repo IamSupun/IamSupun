@@ -1,6 +1,7 @@
 <div align="center">
 
-<img src="./banner.svg" alt="Supun Chathuranga — building AI agents that do real work" width="100%"/>
+<img src="./banner-header.svg" alt="Supun Chathuranga — Lead AI Engineer, building agents that ship, Stockholm" width="100%"/>
+<img src="./robot-typing.gif" alt="AI software factory: an agent at a wall of screens shipping a ticket from plan to deploy" width="100%"/>
 
 <a href="https://supunchathuranga.se/">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=22D3EE&center=true&vCenter=true&width=680&lines=Lead+AI+Engineer+%F0%9F%A4%96+I+build+agents+that+do+real+work;Agentic+systems+%C2%B7+MCP+servers+%C2%B7+LLM+workflows;2%C3%97+%F0%9F%A5%87+%C2%B7+10+top-5+hackathon+finishes;Impact+Cup+2026+finalist+%F0%9F%9A%80;8%2B+years+shipping+software+%C2%B7+Stockholm+%F0%9F%87%B8%F0%9F%87%AA" alt="Typing intro"/>
