@@ -86,7 +86,8 @@ for n in repos.values():
             continue
         cur = langs.setdefault(name, [0, e["node"]["color"] or "#8b949e"])
         cur[0] += e["size"]
-top = sorted(langs.items(), key=lambda kv: -kv[1][0])[:6]
+_all = sum(v[0] for v in langs.values()) or 1
+top = [kv for kv in sorted(langs.items(), key=lambda kv: -kv[1][0]) if kv[1][0] / _all >= 0.005][:6]
 lang_total = sum(v[0] for _, v in top) or 1
 years = now.year - created.year - (0 if (now.month, now.day) >= (created.month, created.day) else 1)
 
@@ -104,7 +105,7 @@ items = [
     ("Code reviews", tot["reviews"], "#22d3ee", "M2 12s4-7 10-7s10 7 10 7s-4 7-10 7S2 12 2 12M12 9a3 3 0 1 0 0 6a3 3 0 1 0 0-6"),
     ("Repos contributed to", len(repos), "#c084fc", "M4 4h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2zM8 4v16"),
 ]
-if tot["private"]:
+if tot["private"] > 0.05 * max(tot["all"], 1):
     items.append(("Private &amp; org work", tot["private"], "#f472b6", "M6 11h12v10H6zM8 11V7a4 4 0 0 1 8 0v4"))
 else:
     items.append(("New repositories", tot["repos"], "#f472b6", "M12 5v14M5 12h14"))
