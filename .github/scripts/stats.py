@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 LOGIN = os.environ.get("LOGIN", "IamSupun")
 TOKEN = os.environ["GH_TOKEN"]
 OUT = sys.argv[1] if len(sys.argv) > 1 else "dist/stats.svg"
+OUT2 = os.path.join(os.path.dirname(OUT) or ".", "activity.svg")
 HIDE_LANGS = {"HTML", "CSS", "SCSS", "Less", "Jupyter Notebook", "Dockerfile", "Shell", "Makefile", "Procfile"}
 
 
@@ -35,10 +36,11 @@ now = datetime.now(timezone.utc)
 YEAR_Q = """query($l:String!,$f:DateTime!,$t:DateTime!){user(login:$l){contributionsCollection(from:$f,to:$t){
   totalCommitContributions totalPullRequestContributions totalIssueContributions
   totalPullRequestReviewContributions totalRepositoryContributions restrictedContributionsCount
-  contributionCalendar{totalContributions}}}}"""
+  contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}}}}}"""
 
 tot = dict(commits=0, prs=0, issues=0, reviews=0, repos=0, private=0, all=0)
 last_year = 0
+days = {}
 for year in range(created.year, now.year + 1):
     f = max(created, datetime(year, 1, 1, tzinfo=timezone.utc))
     t = min(now, datetime(year, 12, 31, 23, 59, 59, tzinfo=timezone.utc))
@@ -50,6 +52,9 @@ for year in range(created.year, now.year + 1):
     tot["repos"] += c["totalRepositoryContributions"]
     tot["private"] += c["restrictedContributionsCount"]
     tot["all"] += c["contributionCalendar"]["totalContributions"]
+    for w in c["contributionCalendar"]["weeks"]:
+        for d in w["contributionDays"]:
+            days[d["date"]] = d["contributionCount"]
 
 # rolling last 365 days
 ly = gql("query($l:String!){user(login:$l){contributionsCollection{contributionCalendar{totalContributions}}}}", {"l": LOGIN})
@@ -155,4 +160,63 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
 
 os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
 open(OUT, "w").write(svg)
-print(json.dumps({**tot, "last_year": last_year, "repos_contributed": len(repos), "langs": [t[0] for t in top]}))
+
+# ---------- streaks + activity chart ----------
+from datetime import date, timedelta
+today = now.date()
+seq = sorted((date.fromisoformat(k), v) for k, v in days.items() if date.fromisoformat(k) <= today)
+longest = run = 0
+for _, v in seq:
+    run = run + 1 if v > 0 else 0
+    longest = max(longest, run)
+cur, d0 = 0, today
+if days.get(d0.isoformat(), 0) == 0:
+    d0 -= timedelta(days=1)  # today not over yet
+while days.get(d0.isoformat(), 0) > 0:
+    cur += 1
+    d0 -= timedelta(days=1)
+best_day = max(seq, key=lambda x: x[1]) if seq else (today, 0)
+
+# weekly totals for the last 52 weeks
+start = today - timedelta(days=today.weekday() + 7 * 51)
+weeks = []
+for i in range(52):
+    ws = start + timedelta(days=7 * i)
+    weeks.append((ws, sum(days.get((ws + timedelta(days=k)).isoformat(), 0) for k in range(7))))
+peak = max([w for _, w in weeks] + [1])
+AW, AH, cx0, cy0, ch = 840, 292, 40, 92, 140
+bw = (AW - 80) / 52
+bars, labels = [], []
+last_month = None
+for i, (ws, v) in enumerate(weeks):
+    h = max(2, ch * v / peak)
+    x = cx0 + i * bw
+    bars.append(f'<rect class="b" style="animation-delay:{i*0.02:.2f}s" x="{x+1.5:.1f}" y="{cy0+ch-h:.1f}" width="{bw-3:.1f}" height="{h:.1f}" rx="2" fill="url(#bg)"><title>{v} contributions · week of {ws:%b %d}</title></rect>')
+    if ws.month != last_month:
+        if last_month is not None:
+            labels.append(f'<text x="{x:.1f}" y="{cy0+ch+20}" class="m">{ws:%b}</text>')
+        last_month = ws.month
+year_total = sum(v for _, v in weeks)
+activity = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{AW}" height="{AH}" viewBox="0 0 {AW} {AH}">
+<defs>
+  <linearGradient id="bg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#7c3aed"/><stop offset=".6" stop-color="#c084fc"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+  <style>
+    text {{ font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; }}
+    .m {{ font-size: 11px; fill: #64748b; }}
+    .k {{ font-size: 22px; font-weight: 800; fill: #f1f5f9; }}
+    .kl {{ font-size: 11.5px; fill: #94a3b8; }}
+    .b {{ transform-box: fill-box; transform-origin: bottom; transform: scaleY(0); animation: grow .7s ease-out forwards; }}
+    @keyframes grow {{ to {{ transform: scaleY(1) }} }}
+  </style>
+</defs>
+<rect x="1" y="1" width="{AW-2}" height="{AH-2}" rx="14" fill="#0b0820" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="40" y="40" font-size="19" font-weight="700" fill="#c084fc">Contribution activity · last 12 months</text>
+<g transform="translate(40,58)"><text class="k" x="0" y="20">{year_total:,}</text><text class="kl" x="0" y="34" dy="0">contributions</text></g>
+<g transform="translate(250,58)"><text class="k" x="0" y="20" fill="#22d3ee">🔥 {cur}</text><text class="kl" x="0" y="34">current streak (days)</text></g>
+<g transform="translate(450,58)"><text class="k" x="0" y="20">{longest}</text><text class="kl" x="0" y="34">longest streak (days)</text></g>
+<g transform="translate(640,58)"><text class="k" x="0" y="20">{best_day[1]}</text><text class="kl" x="0" y="34">best day ({best_day[0]:%b %d, %Y})</text></g>
+<g transform="translate(0,22)">{''.join(bars)}{''.join(labels)}</g>
+</svg>'''
+open(OUT2, "w").write(activity)
+
+print(json.dumps({**tot, "streak": cur, "longest": longest, "last_year": last_year, "repos_contributed": len(repos), "langs": [t[0] for t in top]}))
