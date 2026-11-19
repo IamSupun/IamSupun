@@ -14,10 +14,10 @@
 
 <br/>
 
-<a href="https://supunchathuranga.se/"><img src="https://img.shields.io/badge/Portfolio-supunchathuranga.se-22d3ee?style=flat-square&logo=googlechrome&logoColor=white&labelColor=0b0820"/></a>
-<a href="https://blog.supunchathuranga.se/"><img src="https://img.shields.io/badge/Blog-AI%20Weekly-c084fc?style=flat-square&logo=rss&logoColor=white&labelColor=0b0820"/></a>
-<a href="https://www.linkedin.com/in/supunchathuranga-ai/"><img src="https://img.shields.io/badge/LinkedIn-supunchathuranga--ai-0A66C2?style=flat-square&logo=linkedin&logoColor=white&labelColor=0b0820"/></a>
-<a href="mailto:chathurangarulz@gmail.com"><img src="https://img.shields.io/badge/Email-Say%20hi-f472b6?style=flat-square&logo=gmail&logoColor=white&labelColor=0b0820"/></a>
+<a href="https://supunchathuranga.se/"><img alt="Portfolio: supunchathuranga.se" src="https://img.shields.io/badge/Portfolio-supunchathuranga.se-22d3ee?style=flat-square&logo=googlechrome&logoColor=white&labelColor=0b0820"/></a>
+<a href="https://blog.supunchathuranga.se/"><img alt="Blog: AI Weekly" src="https://img.shields.io/badge/Blog-AI%20Weekly-c084fc?style=flat-square&logo=rss&logoColor=white&labelColor=0b0820"/></a>
+<a href="https://www.linkedin.com/in/supunchathuranga-ai/"><img alt="LinkedIn: Supun Chathuranga" src="https://img.shields.io/badge/LinkedIn-supunchathuranga--ai-0A66C2?style=flat-square&logo=linkedin&logoColor=white&labelColor=0b0820"/></a>
+<a href="mailto:chathurangarulz@gmail.com"><img alt="Email Supun Chathuranga" src="https://img.shields.io/badge/Email-Say%20hi-f472b6?style=flat-square&logo=gmail&logoColor=white&labelColor=0b0820"/></a>
 
 </div>
 
@@ -77,14 +77,14 @@ class Supun(Engineer):
 
 **AI & Agents**
 
-<img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=claude&logoColor=white"/>
-<img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white"/>
-<img src="https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white"/>
-<img src="https://img.shields.io/badge/MCP-0b0820?style=for-the-badge&logo=modelcontextprotocol&logoColor=white"/>
-<img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white"/>
-<img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white"/>
-<img src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black"/>
-<img src="https://img.shields.io/badge/RAG%20Pipelines-7c3aed?style=for-the-badge&logo=databricks&logoColor=white"/>
+<img alt="Claude" src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=claude&logoColor=white"/>
+<img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white"/>
+<img alt="Gemini" src="https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white"/>
+<img alt="Model Context Protocol (MCP)" src="https://img.shields.io/badge/MCP-0b0820?style=for-the-badge&logo=modelcontextprotocol&logoColor=white"/>
+<img alt="LangChain" src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white"/>
+<img alt="n8n" src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white"/>
+<img alt="Hugging Face" src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black"/>
+<img alt="RAG pipelines" src="https://img.shields.io/badge/RAG%20Pipelines-7c3aed?style=for-the-badge&logo=databricks&logoColor=white"/>
 
 <br/><br/>
 
@@ -154,7 +154,7 @@ Turns messy, unstructured information into clean, reusable **context documents f
 - [Organizational Cultural Values that Enable Digital Transformation in an IT Company in Sweden](https://www.researchgate.net/publication/415538623) · <sub>Master's thesis, Stockholm University, 2026</sub>
 - [Forecasting the Stock Market Performance Using External Factors: In the Sri Lankan Context](https://www.researchgate.net/publication/417381811) · <sub>Machine learning</sub>
 
-<a href="https://orcid.org/0009-0008-3048-871X"><img src="https://img.shields.io/badge/ORCID-0009--0008--3048--871X-A6CE39?style=flat-square&logo=orcid&logoColor=white&labelColor=0b0820"/></a>
+<a href="https://orcid.org/0009-0008-3048-871X"><img alt="ORCID: 0009-0008-3048-871X" src="https://img.shields.io/badge/ORCID-0009--0008--3048--871X-A6CE39?style=flat-square&logo=orcid&logoColor=white&labelColor=0b0820"/></a>
 
 </td>
 </tr>
@@ -194,10 +194,10 @@ Turns messy, unstructured information into clean, reusable **context documents f
 
 <div align="center">
 
-<a href="https://supunchathuranga.se/"><img src="https://img.shields.io/badge/Website-supunchathuranga.se-22d3ee?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=0b0820"/></a>
-<a href="https://blog.supunchathuranga.se/"><img src="https://img.shields.io/badge/Blog-AI%20Weekly-c084fc?style=for-the-badge&logo=rss&logoColor=white&labelColor=0b0820"/></a>
-<a href="https://www.linkedin.com/in/supunchathuranga-ai/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0b0820"/></a>
-<a href="mailto:chathurangarulz@gmail.com"><img src="https://img.shields.io/badge/Email-Say%20hi-f472b6?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0b0820"/></a>
+<a href="https://supunchathuranga.se/"><img alt="Website: supunchathuranga.se" src="https://img.shields.io/badge/Website-supunchathuranga.se-22d3ee?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=0b0820"/></a>
+<a href="https://blog.supunchathuranga.se/"><img alt="Blog: AI Weekly" src="https://img.shields.io/badge/Blog-AI%20Weekly-c084fc?style=for-the-badge&logo=rss&logoColor=white&labelColor=0b0820"/></a>
+<a href="https://www.linkedin.com/in/supunchathuranga-ai/"><img alt="Connect with Supun Chathuranga on LinkedIn" src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0b0820"/></a>
+<a href="mailto:chathurangarulz@gmail.com"><img alt="Email Supun Chathuranga" src="https://img.shields.io/badge/Email-Say%20hi-f472b6?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0b0820"/></a>
 
 <br/><br/>
 
@@ -205,6 +205,6 @@ Turns messy, unstructured information into clean, reusable **context documents f
 
 <sub>🎨 Design by <a href="https://github.com/IamSupun">Supun Chathuranga</a> · © 2026 · <a href="./LICENSE">All rights reserved</a></sub>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:22d3ee,50:a855f7,100:f472b6&height=120&section=footer" width="100%"/>
+<img alt="Supun Chathuranga footer banner" src="https://capsule-render.vercel.app/api?type=waving&color=0:22d3ee,50:a855f7,100:f472b6&height=120&section=footer" width="100%"/>
 
 </div>
